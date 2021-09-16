@@ -103,3 +103,23 @@ This is an example adapter but currently it's deprecated.
 
 The WebsocketProxyLib contains the logic behind the WebsocketProxy. It contains a proxy for Websockets that adds authentication with JWT tokens.
 
+
+## Packages
+
+### Docker
+
+The following docker images are provided by us. They are actually used in the Kuberentes deployments.
+
+- [LabVNC](https://hub.docker.com/repository/docker/biolachs2/lab_orchestrator_novnc)
+- [WebsocketProxy](https://hub.docker.com/repository/docker/biolachs2/lab_orchestrator_ws_proxy)
+- [LabOrchestrator-API](https://hub.docker.com/repository/docker/biolachs2/lab_orchestrator)
+
+### PyPi
+
+To make the libraries easily available to everyone they are pushed to PyPi and can be installed with `pip3`.
+
+- [lab-orchestrator-lib](https://pypi.org/project/lab-orchestrator-lib/) (LabOrchestratorLib)
+- [lab-orchestrator-ws-proxy](https://pypi.org/project/lab-orchestrator-ws-proxy/) (WebsocketProxy)
+- [lab-orchestrator-ws-proxy-lib](https://pypi.org/project/lab-orchestrator-ws-proxy-lib/) (WebsocketProxyLib)
+- [lab-orchestrator-lib-auth](https://pypi.org/project/lab-orchestrator-lib-auth/) (LabOrchestratorLib-Auth)
+- [lab-orchestrator-lib-django-adapter](https://pypi.org/project/lab-orchestrator-lib-django-adapter/) (LabOrchestratorLib-DjangoAdapter)
