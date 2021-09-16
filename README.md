@@ -123,3 +123,26 @@ To make the libraries easily available to everyone they are pushed to PyPi and c
 - [lab-orchestrator-ws-proxy-lib](https://pypi.org/project/lab-orchestrator-ws-proxy-lib/) (WebsocketProxyLib)
 - [lab-orchestrator-lib-auth](https://pypi.org/project/lab-orchestrator-lib-auth/) (LabOrchestratorLib-Auth)
 - [lab-orchestrator-lib-django-adapter](https://pypi.org/project/lab-orchestrator-lib-django-adapter/) (LabOrchestratorLib-DjangoAdapter)
+
+
+## VM Images
+
+You need to have kubevirt compatible VM Images. This is for example the qcow2 format. A simple way to create a VM Image
+is to start it in Gnome Boxes, install your Software and than copy the saved image file from either
+`~/.var/app/org.gnome.Boxes/data/gnome-boxes/images/` or `~/.local/share/gnome-boxes`. There is a bigger part in the
+[documentation](https://github.com/LabOrchestrator/LabOrchestrator-Documentation/blob/main/documentation.pdf). I
+recommend reading the chapters 4.2  for building a custom VM and 4.4.2 - 4.4.4 for preparing images with VNC access.
+
+After creating the VM Image you need to wrap it into a docker container (the image needs to be in the folder /disk/)
+and push it into a docker registry (for example docker hub). For this you need to create a file called `dockerfile` and
+add this:
+
+```dockerfile
+FROM scratch
+ADD --chown=107:107 path_to_your_file.img /disk/
+```
+
+Then run `docker build -t username/reponame:version .` to build the image and `docker push username/reponame:version` to
+push the image to docker hub.
+
+I also recommend reading chapters 4.2.1 "Custom base Image with Cloud-init Setup" and 4.1.4.6 "Container Disks".
