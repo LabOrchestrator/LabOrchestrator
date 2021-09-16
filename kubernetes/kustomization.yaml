@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # namespace: lab-controller
+  - lab_orchestrator_api/namespaces.yaml
+  # postgres
+  - postgres/config_map.yaml
+  - postgres/storage.yaml
+  - postgres/deployment.yaml
+  - postgres/service.yaml
+  # api
+  - lab_orchestrator_api/permissions.yaml
+  - lab_orchestrator_api/lab_config.yaml
+  - lab_orchestrator_api/deployments.yaml
+  - lab_orchestrator_api/services.yaml
+  # ws proxy
+  - websocket_proxy/websocket_proxy.yaml
+  # novnc
+  - lab_vnc/lab_vnc.yaml

@@ -1,0 +1,352 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lab-controller
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: lab-controller-api-account
+  namespace: lab-controller
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: lab-controller-ws-proxy-account
+  namespace: lab-controller
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: lab-controller-api-account
+  namespace: lab-controller
+rules:
+- apiGroups:
+  - kubevirt.io
+  resources:
+  - virtualmachines
+  - virtualmachineinstances
+  - virtualmachineinstancepresets
+  - virtualmachineinstancereplicasets
+  - virtualmachineinstancemigrations
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - delete
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: lab-controller-ws-proxy-account
+  namespace: lab-controller
+rules:
+- apiGroups:
+  - subresources.kubevirt.io
+  resources:
+  - virtualmachineinstances/console
+  - virtualmachineinstances/vnc
+  verbs:
+  - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: lab-controller-api-account
+  namespace: lab-controller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: lab-controller-api-account
+subjects:
+- kind: ServiceAccount
+  name: lab-controller-api-account
+  namespace: lab-controller
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: lab-controller-ws-proxy-account
+  namespace: lab-controller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: lab-controller-ws-proxy-account
+subjects:
+- kind: ServiceAccount
+  name: lab-controller-ws-proxy-account
+  namespace: lab-controller
+---
+apiVersion: v1
+data:
+  ALLOWED_HOSTS: localhost;127.0.0.1;192.168.50.45
+  AMOUNT_WORKERS: "5"
+  DEBUG: "False"
+  DEFAULT_FROM_EMAIL: noreply@domain.com
+  DEVELOPMENT: "False"
+  DJANGO_SUPERUSER_EMAIL: admin@domain.com
+  DJANGO_SUPERUSER_PASSWORD: secret
+  DJANGO_SUPERUSER_USERNAME: admin
+  EMAIL_HOST: domain.com
+  EMAIL_HOST_PASSWORD: secret
+  EMAIL_HOST_USER: noreply@domain.com
+  EMAIL_PORT: "587"
+  EMAIL_USE_TLS: "True"
+  SECRET_KEY: secret_key_for_testing
+  USE_X_FORWARDED_HOST: "True"
+kind: ConfigMap
+metadata:
+  labels:
+    app: lab-config
+  name: lab-config
+  namespace: lab-controller
+---
+apiVersion: v1
+data:
+  POSTGRES_DB: postgresdb
+  POSTGRES_PASSWORD: admin123
+  POSTGRES_USER: postgresadmin
+kind: ConfigMap
+metadata:
+  labels:
+    app: postgres
+  name: postgres-config
+  namespace: lab-controller
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: lab-controller-api
+  name: lab-controller-api
+  namespace: lab-controller
+spec:
+  ports:
+  - name: http
+    nodePort: 30001
+    port: 80
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: lab-controller-api
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: lab-controller-novnc
+  name: lab-controller-novnc
+  namespace: lab-controller
+spec:
+  ports:
+  - name: httpnovnc
+    nodePort: 30003
+    port: 80
+    protocol: TCP
+    targetPort: 8002
+  selector:
+    app: lab-controller-novnc
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: lab-controller-ws-proxy
+  name: lab-controller-ws-proxy
+  namespace: lab-controller
+spec:
+  ports:
+  - name: websockets
+    nodePort: 30002
+    port: 5001
+    protocol: TCP
+    targetPort: 5001
+  selector:
+    app: lab-controller-ws-proxy
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: postgres
+  name: postgres
+  namespace: lab-controller
+spec:
+  ports:
+  - port: 5432
+  selector:
+    app: postgres
+  type: NodePort
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    app: postgres
+    type: local
+  name: postgres-pv-volume
+  namespace: lab-controller
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 5Gi
+  hostPath:
+    path: /mnt/data
+  storageClassName: manual
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: postgres
+  name: postgres-pv-claim
+  namespace: lab-controller
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: manual
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab-controller-api-deployment
+  namespace: lab-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lab-controller-api
+  template:
+    metadata:
+      labels:
+        app: lab-controller-api
+    spec:
+      containers:
+      - env:
+        - name: DATABASE_ENGINE
+          value: postgres
+        envFrom:
+        - configMapRef:
+            name: postgres-config
+        - configMapRef:
+            name: lab-config
+        image: biolachs2/lab_orchestrator:latest
+        imagePullPolicy: Always
+        name: lab-orchestrator-api
+        ports:
+        - containerPort: 5000
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - until nslookup postgres; do echo waiting for postgres; sleep 2; done;
+        image: busybox
+        name: init-postgres
+      serviceAccountName: lab-controller-api-account
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab-controller-novnc-deployment
+  namespace: lab-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lab-controller-novnc
+  template:
+    metadata:
+      labels:
+        app: lab-controller-novnc
+    spec:
+      containers:
+      - image: biolachs2/lab_orchestrator_novnc:latest
+        imagePullPolicy: Always
+        name: lab-orchestrator-novnc
+        ports:
+        - containerPort: 8002
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab-controller-ws-proxy-deployment
+  namespace: lab-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lab-controller-ws-proxy
+  template:
+    metadata:
+      labels:
+        app: lab-controller-ws-proxy
+    spec:
+      containers:
+      - env:
+        - name: SECRET_KEY
+          value: secret_key_for_testing
+        image: biolachs2/lab_orchestrator_ws_proxy:latest
+        imagePullPolicy: Always
+        name: lab-orchestrator-ws-proxy
+        ports:
+        - containerPort: 5001
+      serviceAccountName: lab-controller-ws-proxy-account
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+  namespace: lab-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  serviceName: postgres-service
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - env:
+        - name: PGDATA
+          value: /data/pgdata
+        envFrom:
+        - configMapRef:
+            name: postgres-config
+        image: postgres:latest
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - exec pg_isready -U "postgres" -h 127.0.0.1 -p 5432
+          failureThreshold: 6
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        name: postgres
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - mountPath: /data
+          name: postgres-disk
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-disk
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 25Gi

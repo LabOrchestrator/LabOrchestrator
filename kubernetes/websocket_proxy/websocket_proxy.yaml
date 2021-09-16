@@ -1,0 +1,79 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: lab-controller-ws-proxy-account
+  namespace: lab-controller
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: lab-controller-ws-proxy-account
+  namespace: lab-controller
+rules:
+  - apiGroups:
+      - subresources.kubevirt.io
+    resources:
+      - virtualmachineinstances/console
+      - virtualmachineinstances/vnc
+    verbs:
+      - get
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: lab-controller-ws-proxy-account
+  namespace: lab-controller
+subjects:
+  - kind: ServiceAccount
+    name: lab-controller-ws-proxy-account
+    namespace: lab-controller
+roleRef:
+  kind: ClusterRole
+  name: lab-controller-ws-proxy-account
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab-controller-ws-proxy-deployment
+  namespace: lab-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lab-controller-ws-proxy
+  template:
+    metadata:
+      labels:
+        app: lab-controller-ws-proxy
+    spec:
+      serviceAccountName: lab-controller-ws-proxy-account
+      containers:
+        - name: lab-orchestrator-ws-proxy
+          image: biolachs2/lab_orchestrator_ws_proxy:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5001
+          env:
+            - name: SECRET_KEY
+              value: "secret_key_for_testing"
+            # - name: LOGLEVEL
+            #   value: "DEBUG"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: lab-controller-ws-proxy
+  name: lab-controller-ws-proxy
+  namespace: lab-controller
+spec:
+  selector:
+    app: lab-controller-ws-proxy
+  ports:
+    - port: 5001 # incoming
+      name: websockets
+      protocol: TCP
+      targetPort: 5001 # port in the pod
+      nodePort: 30002
+  type: NodePort
