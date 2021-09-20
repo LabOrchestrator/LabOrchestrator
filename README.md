@@ -81,7 +81,9 @@ This is the core library that contains every functionality. To use the core libr
 
 **LabOrchestratorLib-Auth:**
 
-[Link](https://github.com/LabOrchestrator/LabOrchestratorLib-Auth)
+[Github](https://github.com/LabOrchestrator/LabOrchestratorLib-Auth)
+[PyPi](https://pypi.org/project/lab-orchestrator-lib-auth/)
+[Read The Docs](https://laborchestratorlib-auth.readthedocs.io/en/latest/index.html)
 
 This library is an abstraction of some authentication methods. It is used to create a JWT token in the API and also used to decode the JWT token in the WebsocketProxy.
 
@@ -99,7 +101,9 @@ This is an example adapter but currently it's deprecated.
 
 **WebsocketProxyLib:**
 
-[Link](https://github.com/LabOrchestrator/WebsocketProxyLib)
+[Github](https://github.com/LabOrchestrator/WebsocketProxyLib)
+[PyPi](https://pypi.org/project/lab-orchestrator-ws-proxy-lib/)
+[Read The Docs](https://websocketproxylib.readthedocs.io/en/latest/)
 
 The WebsocketProxyLib contains the logic behind the WebsocketProxy. It contains a proxy for Websockets that adds authentication with JWT tokens.
 
