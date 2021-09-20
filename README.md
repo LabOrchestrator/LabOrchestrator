@@ -45,7 +45,9 @@ The LabOrchestrator-API is a Django-Rest-Framework (DRF) application that gives 
 
 **WebsocketProxy:**
 
-[Link](https://github.com/LabOrchestrator/WebsocketProxy)
+[Github](https://github.com/LabOrchestrator/WebsocketProxy)  
+[PyPi](https://pypi.org/project/lab-orchestrator-ws-proxy/)  
+[Read The Docs](https://websocketproxylib.readthedocs.io/en/latest/) (WebsocketProxyLib)
 
 When a VM is started kubvirt automatically starts a VNC server for this VM. The WebsocketProxy adds authentication to this, so that only authorized users are able to connect to their VMs. To use it you need to connect to the service and the path must contain the token and the VM name separated by a slash: `localhost:30002/ABCDEFTOKENGHIJKLM/ubuntu`. The token is shown when you start the lab. One token can be used to access all VMs in this lab.
 
@@ -81,8 +83,8 @@ This is the core library that contains every functionality. To use the core libr
 
 **LabOrchestratorLib-Auth:**
 
-[Github](https://github.com/LabOrchestrator/LabOrchestratorLib-Auth)
-[PyPi](https://pypi.org/project/lab-orchestrator-lib-auth/)
+[Github](https://github.com/LabOrchestrator/LabOrchestratorLib-Auth)  
+[PyPi](https://pypi.org/project/lab-orchestrator-lib-auth/)  
 [Read The Docs](https://laborchestratorlib-auth.readthedocs.io/en/latest/index.html)
 
 This library is an abstraction of some authentication methods. It is used to create a JWT token in the API and also used to decode the JWT token in the WebsocketProxy.
@@ -101,8 +103,8 @@ This is an example adapter but currently it's deprecated.
 
 **WebsocketProxyLib:**
 
-[Github](https://github.com/LabOrchestrator/WebsocketProxyLib)
-[PyPi](https://pypi.org/project/lab-orchestrator-ws-proxy-lib/)
+[Github](https://github.com/LabOrchestrator/WebsocketProxyLib)  
+[PyPi](https://pypi.org/project/lab-orchestrator-ws-proxy-lib/)  
 [Read The Docs](https://websocketproxylib.readthedocs.io/en/latest/)
 
 The WebsocketProxyLib contains the logic behind the WebsocketProxy. It contains a proxy for Websockets that adds authentication with JWT tokens.
