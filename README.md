@@ -78,7 +78,9 @@ This is the project documentation. It contains an installation guide but also a 
 
 **LabOrchestratorLib:**
 
-[Link](https://github.com/LabOrchestrator/LabOrchestratorLib)
+[Github](https://github.com/LabOrchestrator/LabOrchestratorLib)  
+[PyPi](https://pypi.org/project/lab-orchestrator-lib/)  
+[Read The Docs](https://laborchestratorlib.readthedocs.io/en/latest/index.html)
 
 This is the core library that contains every functionality. To use the core library you need to have an adapter that connects the core library to your database. There is already a Django Adapter, but if you use other databases you need to create one by your own or create a feature request.
 
