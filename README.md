@@ -18,7 +18,7 @@ Execute `minikube service -n lab-controller lab-controller-api`. This will open 
 
 ## Structure
 
-The project contains four main parts:
+The project contains three main parts:
 - [LabOrchestrator-API](https://github.com/LabOrchestrator/LabOrchestrator)
 - [WebsocketProxy](https://github.com/LabOrchestrator/WebsocketProxy)
 - [LabVNC](https://github.com/LabOrchestrator/LabVNC)
