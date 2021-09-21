@@ -1,10 +1,22 @@
+![LabOrchestrator = Kubernetes + KubeVirt + NoVNC](https://raw.githubusercontent.com/LabOrchestrator/LabOrchestrator-Documentation/main/logo/logomath.png)
+
+
 # LabOrchestrator
 
 The Lab Orchestrator is a tool that helps you to orchestrate labs.
 
-A lab is a combination from multiple VMs that share a network. When you start a lab, the VMs are started in Kubernetes in a separate namespace so that you aren't able to connect to labs from other people. You can access the VMs over VNC in the browser with LabVNC. Labs can be created by admins and started by anyone.
+## Introduction
+
+A lab is a combination from multiple VMs that share a network. When you start a lab, the VMs are started in Kubernetes with KubeVirt in a separate namespace so that you aren't able to connect to labs from other people. You can access the VMs over VNC in the browser with LabVNC. Labs can be created by admins and started by anyone. In addition to the VNC connection you can add instructions. This is especially useful for teaching purposes.
+
+The LabOrchestrator can be used by anyone who wants to start VMs in a network that should be separeted by users. use cases of this library would be for example a lecturer who wants to provide vms for his students or a company or association who wants to learn security testing in a secure environment.
 
 The Lab Orchestrator project is divided into multiple subprojects and this repository aims to provide a small introduction into all of them and Kubernetes files to deploy them all at once.
+
+## Milestones of the project
+
+- [x] Start/Stop labs
+- [ ] Instructions
 
 ## Installation
 
