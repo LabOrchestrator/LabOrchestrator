@@ -46,16 +46,24 @@ There are also some libraries that are included in those main parts:
 - [LabOrchestratorLib-FlaskSQLAlchemyAdapter](https://github.com/LabOrchestrator/LabOrchestratorLib-FlaskSQLAlchemyAdapter)
 - [WebsocketProxyLib](https://github.com/LabOrchestrator/WebsocketProxyLib)
 
-### Main Parts
+## Main Parts
 
-**LabOrchestrator-API:**
+### LabOrchestrator-API
 
-[Link](https://github.com/LabOrchestrator/LabOrchestrator)
+[![](https://img.shields.io/docker/pulls/biolachs2/lab_orchestrator)](https://hub.docker.com/r/biolachs2/lab_orchestrator)
+[![](https://img.shields.io/github/issues/laborchestrator/laborchestrator-api)](https://github.com/laborchestrator/laborchestrator-api/issues)
+
+[Link](https://github.com/LabOrchestrator/LabOrchestrator-api)
 
 This is the API that controls the Kubernetes cluster, starts and stops VMs and manages all other resources for example labs and users.
 The LabOrchestrator-API is a Django-Rest-Framework (DRF) application that gives us access to all functionality in the LabOrchestratorLib.
 
-**WebsocketProxy:**
+### WebsocketProxy
+
+[![](https://img.shields.io/docker/pulls/biolachs2/lab_orchestrator_ws_proxy)](https://hub.docker.com/r/biolachs2/lab_orchestrator_ws_proxy)
+[![](https://img.shields.io/github/issues/laborchestrator/websocketproxy)](https://github.com/laborchestrator/websocketproxy/issues)
+![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-ws-proxy)
+![](https://img.shields.io/pypi/dw/lab-orchestrator-ws-proxy?label=pypi%20downloads)
 
 [Github](https://github.com/LabOrchestrator/WebsocketProxy)  
 [PyPi](https://pypi.org/project/lab-orchestrator-ws-proxy/)  
@@ -64,15 +72,21 @@ The LabOrchestrator-API is a Django-Rest-Framework (DRF) application that gives 
 
 When a VM is started kubvirt automatically starts a VNC server for this VM. The WebsocketProxy adds authentication to this, so that only authorized users are able to connect to their VMs. To use it you need to connect to the service and the path must contain the token and the VM name separated by a slash: `localhost:30002/ABCDEFTOKENGHIJKLM/ubuntu`. The token is shown when you start the lab. One token can be used to access all VMs in this lab.
 
-**LabVNC:**
+### LabVNC
+
+[![](https://img.shields.io/docker/pulls/biolachs2/lab_orchestrator_novnc)](https://hub.docker.com/r/biolachs2/lab_orchestrator_novnc)
+[![](https://img.shields.io/github/issues/laborchestrator/labvnc)](https://github.com/laborchestrator/labvnc/issues)
 
 [Link](https://github.com/LabOrchestrator/LabVNC)
 
 The LabVNC deploys [noVNC](https://github.com/novnc/noVNC). With this part it's possible to open a VNC connection in your browser. To use it you need to open vnc.html or vnc_lite.html. Then set the parameters host to the ip of the WebsocketProxy, port to the port of the WebsocketProxy and path to the token and VM name as described above. There are other optional parameters listed [here](https://github.com/novnc/noVNC/blob/master/docs/EMBEDDING.md). A URL can look like this: `localhost:30003/vnc_lite.html?host=localhost&port=30002&path=ABCDEFTOKENGHIJKLM/ubuntu`.
 
-### Documentation
+## Documentation
 
-**LabOrchestrator:**
+### LabOrchestrator
+
+![](https://img.shields.io/github/downloads/laborchestrator/laborchestrator/total)
+[![](https://img.shields.io/github/issues/laborchestrator/laborchestrator)](https://github.com/laborchestrator/laborchestrator/issues)
 
 [Link](https://github.com/LabOrchestrator/LabOrchestrator)
 
@@ -80,15 +94,23 @@ This project contains files for deploying the project in Kubernetes. Go to kuber
 
 This project also includes the current small documentation that explains every part of the project with a few sentences.
 
-**LabOrchestrator-Documentation:**
+### LabOrchestrator-Documentation
+
+![](https://img.shields.io/github/downloads/laborchestrator/laborchestrator-documentation/total)
+[![](https://img.shields.io/github/issues/laborchestrator/laborchestrator-documentation)](https://github.com/laborchestrator/laborchestrator-documentation/issues)
 
 [Link](https://github.com/LabOrchestrator/LabOrchestrator-Documentation)
 
 This is the project documentation. It contains an installation guide but also a full project description and the documentation about the prototype and some development steps. It's a big guide, but it should contain everything that needs to be documented.
 
-### Libraries
+## Libraries
 
-**LabOrchestratorLib:**
+### LabOrchestratorLib
+
+![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-lib)
+[![](https://img.shields.io/github/issues/laborchestrator/laborchestratorlib)](https://github.com/laborchestrator/laborchestratorlib/issues)
+![](https://img.shields.io/pypi/dw/lab-orchestrator-lib)
+![](https://img.shields.io/readthedocs/laborchestratorlib)
 
 [Github](https://github.com/LabOrchestrator/LabOrchestratorLib)  
 [PyPi](https://pypi.org/project/lab-orchestrator-lib/)  
@@ -96,7 +118,12 @@ This is the project documentation. It contains an installation guide but also a 
 
 This is the core library that contains every functionality. To use the core library you need to have an adapter that connects the core library to your database. There is already a Django Adapter, but if you use other databases you need to create one by your own or create a feature request.
 
-**LabOrchestratorLib-Auth:**
+### LabOrchestratorLib-Auth
+
+![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-lib-auth)
+[![](https://img.shields.io/github/issues/laborchestrator/laborchestratorlib-auth)](https://github.com/laborchestrator/laborchestratorlib-auth/issues)
+![](https://img.shields.io/pypi/dw/lab-orchestrator-lib-auth)
+![](https://img.shields.io/readthedocs/laborchestratorlib-auth)
 
 [Github](https://github.com/LabOrchestrator/LabOrchestratorLib-Auth)  
 [PyPi](https://pypi.org/project/lab-orchestrator-lib-auth/)  
@@ -104,19 +131,29 @@ This is the core library that contains every functionality. To use the core libr
 
 This library is an abstraction of some authentication methods. It is used to create a JWT token in the API and also used to decode the JWT token in the WebsocketProxy.
 
-**LabOrchestratorLib-DjangoAdapter:**
+### LabOrchestratorLib-DjangoAdapter
+
+![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-lib-django-adapter)
+[![](https://img.shields.io/github/issues/laborchestrator/laborchestratorlib-djangoadapter)](https://github.com/laborchestrator/laborchestratorlib-djangoadapter/issues)
+![](https://img.shields.io/pypi/dw/lab-orchestrator-lib-django-adapter)
+![](https://img.shields.io/readthedocs/laborchestratorlib-djangoadapter)
 
 [Link](https://github.com/LabOrchestrator/LabOrchestrator)
 
 This is an adapter that connects the LabOrchestratorLib with the Django Database. It also contains some example views that you can use in your Django project.
 
-**LabOrchestratorLib-FlaskSQLAlchemyAdapter:**
+### LabOrchestratorLib-FlaskSQLAlchemyAdapter
 
 [Link](https://github.com/LabOrchestrator/LabOrchestratorLib-FlaskSQLAlchemyAdapter)
 
 This is an example adapter but currently it's deprecated.
 
-**WebsocketProxyLib:**
+### WebsocketProxyLib
+
+![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-ws-proxy-lib)
+[![](https://img.shields.io/github/issues/laborchestrator/websocketproxylib)](https://github.com/laborchestrator/websocketproxylib/issues)
+![](https://img.shields.io/pypi/dw/lab-orchestrator-ws-proxy-lib)
+![](https://img.shields.io/readthedocs/websocketproxylib)
 
 [Github](https://github.com/LabOrchestrator/WebsocketProxyLib)  
 [PyPi](https://pypi.org/project/lab-orchestrator-ws-proxy-lib/)  
