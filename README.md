@@ -1,5 +1,10 @@
 ![LabOrchestrator = Kubernetes + KubeVirt + NoVNC](https://raw.githubusercontent.com/LabOrchestrator/LabOrchestrator-Documentation/main/logo/logomath.png)
 
+![Status](https://img.shields.io/badge/status-alpha-red)
+[![Issues](https://img.shields.io/github/issues/laborchestrator/laborchestrator)](https://github.com/laborchestrator/laborchestrator/issues)
+[![Downloads](https://img.shields.io/github/downloads/laborchestrator/laborchestrator/total)](https://github.com/LabOrchestrator/LabOrchestrator)
+
+
 
 # LabOrchestrator
 
