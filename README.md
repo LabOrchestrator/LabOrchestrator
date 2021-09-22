@@ -107,10 +107,12 @@ This is the project documentation. It contains an installation guide but also a 
 
 ### LabOrchestratorLib
 
-![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-lib)
+[![](https://img.shields.io/github/v/release/LabOrchestrator/LabOrchestratorLib?sort=semver)](https://github.com/LabOrchestrator/LabOrchestratorLib/releases)
+[![](https://img.shields.io/github/license/laborchestrator/laborchestratorlib)](https://github.com/LabOrchestrator/LabOrchestratorLib/blob/main/LICENSE)
 [![](https://img.shields.io/github/issues/laborchestrator/laborchestratorlib)](https://github.com/laborchestrator/laborchestratorlib/issues)
-![](https://img.shields.io/pypi/dw/lab-orchestrator-lib)
-![](https://img.shields.io/readthedocs/laborchestratorlib)
+[![](https://img.shields.io/pypi/dw/lab-orchestrator-lib)](https://pypi.org/project/lab-orchestrator-lib/)
+[![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-lib)](https://libraries.io/pypi/lab-orchestrator-lib)
+[![](https://img.shields.io/readthedocs/laborchestratorlib)](https://laborchestratorlib.readthedocs.io/en/latest/)
 
 [Github](https://github.com/LabOrchestrator/LabOrchestratorLib)  
 [PyPi](https://pypi.org/project/lab-orchestrator-lib/)  
@@ -120,10 +122,12 @@ This is the core library that contains every functionality. To use the core libr
 
 ### LabOrchestratorLib-Auth
 
-![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-lib-auth)
+[![](https://img.shields.io/github/v/release/LabOrchestrator/LabOrchestratorLib-Auth?sort=semver)](https://github.com/LabOrchestrator/LabOrchestratorLib-Auth/releases)
+[![](https://img.shields.io/github/license/laborchestrator/laborchestratorlib-auth)](https://github.com/LabOrchestrator/LabOrchestratorLib-Auth/blob/main/LICENSE)
 [![](https://img.shields.io/github/issues/laborchestrator/laborchestratorlib-auth)](https://github.com/laborchestrator/laborchestratorlib-auth/issues)
-![](https://img.shields.io/pypi/dw/lab-orchestrator-lib-auth)
-![](https://img.shields.io/readthedocs/laborchestratorlib-auth)
+[![](https://img.shields.io/pypi/dw/lab-orchestrator-lib-auth)](https://pypi.org/project/lab-orchestrator-lib-auth/)
+[![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-lib-auth)](https://libraries.io/pypi/lab-orchestrator-lib-auth)
+[![](https://img.shields.io/readthedocs/laborchestratorlib-auth)](https://laborchestratorlib-auth.readthedocs.io/en/latest/)
 
 [Github](https://github.com/LabOrchestrator/LabOrchestratorLib-Auth)  
 [PyPi](https://pypi.org/project/lab-orchestrator-lib-auth/)  
@@ -133,16 +137,22 @@ This library is an abstraction of some authentication methods. It is used to cre
 
 ### LabOrchestratorLib-DjangoAdapter
 
-![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-lib-django-adapter)
+[![](https://img.shields.io/github/v/release/LabOrchestrator/LabOrchestratorLib-DjangoAdapter?sort=semver)](https://github.com/LabOrchestrator/LabOrchestratorLib-DjangoAdapter/releases)
+[![](https://img.shields.io/github/license/laborchestrator/laborchestratorlib-djangoadapter)](https://github.com/LabOrchestrator/LabOrchestratorLib-DjangoAdapter/blob/main/LICENSE)
 [![](https://img.shields.io/github/issues/laborchestrator/laborchestratorlib-djangoadapter)](https://github.com/laborchestrator/laborchestratorlib-djangoadapter/issues)
-![](https://img.shields.io/pypi/dw/lab-orchestrator-lib-django-adapter)
-![](https://img.shields.io/readthedocs/laborchestratorlib-djangoadapter)
+[![](https://img.shields.io/pypi/dw/lab-orchestrator-lib-django-adapter)](https://pypi.org/project/lab-orchestrator-lib-django-adapter/)
+[![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-lib-django-adapter)](https://libraries.io/pypi/lab-orchestrator-lib-django-adapter)
+[![](https://img.shields.io/readthedocs/laborchestratorlib-djangoadapter)](https://laborchestratorlib-djangoadapter.readthedocs.io/en/latest/)
 
-[Link](https://github.com/LabOrchestrator/LabOrchestrator)
+[Github](https://github.com/LabOrchestrator/LabOrchestratorLib-DjangoAdapter)  
+[PyPi](https://pypi.org/project/lab-orchestrator-lib-django-adapter/)  
+[Read The Docs](https://laborchestratorlib-djangoadapter.readthedocs.io/en/latest/index.html)
 
 This is an adapter that connects the LabOrchestratorLib with the Django Database. It also contains some example views that you can use in your Django project.
 
 ### LabOrchestratorLib-FlaskSQLAlchemyAdapter
+
+![](https://img.shields.io/badge/status-deprecated-red)
 
 [Link](https://github.com/LabOrchestrator/LabOrchestratorLib-FlaskSQLAlchemyAdapter)
 
@@ -150,10 +160,13 @@ This is an example adapter but currently it's deprecated.
 
 ### WebsocketProxyLib
 
-![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-ws-proxy-lib)
-[![](https://img.shields.io/github/issues/laborchestrator/websocketproxylib)](https://github.com/laborchestrator/websocketproxylib/issues)
-![](https://img.shields.io/pypi/dw/lab-orchestrator-ws-proxy-lib)
-![](https://img.shields.io/readthedocs/websocketproxylib)
+[![](https://img.shields.io/github/v/release/LabOrchestrator/WebsocketProxyLib?sort=semver)](https://github.com/LabOrchestrator/WebsocketProxyLib/releases)
+[![](https://img.shields.io/github/license/laborchestrator/WebsocketProxyLib)](https://github.com/LabOrchestrator/WebsocketProxyLib/blob/main/LICENSE)
+[![](https://img.shields.io/github/issues/laborchestrator/WebsocketProxyLib)](https://github.com/laborchestrator/WebsocketProxyLib/issues)
+[![](https://img.shields.io/pypi/dw/lab-orchestrator-ws-proxy-lib)](https://pypi.org/project/lab-orchestrator-ws-proxy-lib/)
+[![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-ws-proxy-lib)](https://libraries.io/pypi/lab-orchestrator-ws-proxy-lib)
+[![](https://img.shields.io/readthedocs/websocketproxylib)](https://websocketproxylib.readthedocs.io/en/latest/)
+
 
 [Github](https://github.com/LabOrchestrator/WebsocketProxyLib)  
 [PyPi](https://pypi.org/project/lab-orchestrator-ws-proxy-lib/)  
