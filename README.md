@@ -75,7 +75,6 @@ The LabOrchestrator-API is a Django-Rest-Framework (DRF) application that gives 
 [Github](https://github.com/LabOrchestrator/WebsocketProxy)  
 [PyPi](https://pypi.org/project/lab-orchestrator-ws-proxy/)  
 [Docker Hub](https://hub.docker.com/repository/docker/biolachs2/lab_orchestrator_ws_proxy)  
-[Read The Docs](https://websocketproxylib.readthedocs.io/en/latest/) (WebsocketProxyLib)
 
 When a VM is started kubvirt automatically starts a VNC server for this VM. The WebsocketProxy adds authentication to this, so that only authorized users are able to connect to their VMs. To use it you need to connect to the service and the path must contain the token and the VM name separated by a slash: `localhost:30002/ABCDEFTOKENGHIJKLM/ubuntu`. The token is shown when you start the lab. One token can be used to access all VMs in this lab.
 
