@@ -50,20 +50,27 @@ There are also some libraries that are included in those main parts:
 
 ### LabOrchestrator-API
 
-[![](https://img.shields.io/docker/pulls/biolachs2/lab_orchestrator)](https://hub.docker.com/r/biolachs2/lab_orchestrator)
-[![](https://img.shields.io/github/issues/laborchestrator/laborchestrator-api)](https://github.com/laborchestrator/laborchestrator-api/issues)
+![Status](https://img.shields.io/badge/status-alpha-red)
+[![Version](https://img.shields.io/docker/v/biolachs2/lab_orchestrator)](https://hub.docker.com/r/biolachs2/lab_orchestrator/tags)
+[![License](https://img.shields.io/github/license/laborchestrator/laborchestrator-api)](https://github.com/LabOrchestrator/laborchestrator-api/blob/main/LICENSE)
+[![Issues](https://img.shields.io/github/issues/laborchestrator/laborchestrator-api)](https://github.com/laborchestrator/laborchestrator-api/issues)
+[![Downloads](https://img.shields.io/docker/pulls/biolachs2/lab_orchestrator)](https://hub.docker.com/r/biolachs2/lab_orchestrator)
 
-[Link](https://github.com/LabOrchestrator/LabOrchestrator-api)
+[Github](https://github.com/LabOrchestrator/LabOrchestrator-api)  
+[Docker Hub](https://hub.docker.com/r/biolachs2/lab_orchestrator)
 
 This is the API that controls the Kubernetes cluster, starts and stops VMs and manages all other resources for example labs and users.
 The LabOrchestrator-API is a Django-Rest-Framework (DRF) application that gives us access to all functionality in the LabOrchestratorLib.
 
 ### WebsocketProxy
 
-[![](https://img.shields.io/docker/pulls/biolachs2/lab_orchestrator_ws_proxy)](https://hub.docker.com/r/biolachs2/lab_orchestrator_ws_proxy)
-[![](https://img.shields.io/github/issues/laborchestrator/websocketproxy)](https://github.com/laborchestrator/websocketproxy/issues)
-![](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-ws-proxy)
-![](https://img.shields.io/pypi/dw/lab-orchestrator-ws-proxy?label=pypi%20downloads)
+[![Status](https://img.shields.io/pypi/status/lab-orchestrator-ws-proxy)](https://pypi.org/project/lab-orchestrator-ws-proxy/)
+[![Version](https://img.shields.io/docker/v/biolachs2/lab_orchestrator_ws_proxy)](https://hub.docker.com/r/biolachs2/lab_orchestrator_ws_proxy/tags)
+[![License](https://img.shields.io/github/license/laborchestrator/WebsocketProxy)](https://github.com/LabOrchestrator/WebsocketProxy/blob/main/LICENSE)
+[![Issues](https://img.shields.io/github/issues/laborchestrator/WebsocketProxy)](https://github.com/laborchestrator/WebsocketProxy/issues)
+[![Downloads](https://img.shields.io/docker/pulls/biolachs2/lab_orchestrator_ws_proxy)](https://hub.docker.com/r/biolachs2/lab_orchestrator_ws_proxy)
+[![Dependencies](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-ws-proxy)](https://libraries.io/pypi/lab-orchestrator-ws-proxy)
+[![Docs](https://img.shields.io/readthedocs/websocketproxy)](https://websocketproxy.readthedocs.io/en/latest/)
 
 [Github](https://github.com/LabOrchestrator/WebsocketProxy)  
 [PyPi](https://pypi.org/project/lab-orchestrator-ws-proxy/)  
@@ -74,10 +81,14 @@ When a VM is started kubvirt automatically starts a VNC server for this VM. The 
 
 ### LabVNC
 
-[![](https://img.shields.io/docker/pulls/biolachs2/lab_orchestrator_novnc)](https://hub.docker.com/r/biolachs2/lab_orchestrator_novnc)
-[![](https://img.shields.io/github/issues/laborchestrator/labvnc)](https://github.com/laborchestrator/labvnc/issues)
+![Status](https://img.shields.io/badge/status-alpha-red)
+[![Version](https://img.shields.io/docker/v/biolachs2/lab_orchestrator_novnc)](https://hub.docker.com/r/biolachs2/lab_orchestrator_novnc/tags)
+[![License](https://img.shields.io/github/license/laborchestrator/laborchestratorlib-djangoadapter)](https://github.com/LabOrchestrator/laborchestratorlib-djangoadapter/blob/main/LICENSE)
+[![Issues](https://img.shields.io/github/issues/laborchestrator/labvnc)](https://github.com/laborchestrator/labvnc/issues)
+[![Downloads](https://img.shields.io/docker/pulls/biolachs2/lab_orchestrator_novnc)](https://hub.docker.com/r/biolachs2/lab_orchestrator_novnc)
 
-[Link](https://github.com/LabOrchestrator/LabVNC)
+[Github](https://github.com/LabOrchestrator/LabVNC)  
+[Docker Hub](https://hub.docker.com/r/biolachs2/lab_orchestrator_novnc)
 
 The LabVNC deploys [noVNC](https://github.com/novnc/noVNC). With this part it's possible to open a VNC connection in your browser. To use it you need to open vnc.html or vnc_lite.html. Then set the parameters host to the ip of the WebsocketProxy, port to the port of the WebsocketProxy and path to the token and VM name as described above. There are other optional parameters listed [here](https://github.com/novnc/noVNC/blob/master/docs/EMBEDDING.md). A URL can look like this: `localhost:30003/vnc_lite.html?host=localhost&port=30002&path=ABCDEFTOKENGHIJKLM/ubuntu`.
 
@@ -85,10 +96,11 @@ The LabVNC deploys [noVNC](https://github.com/novnc/noVNC). With this part it's 
 
 ### LabOrchestrator
 
-![](https://img.shields.io/github/downloads/laborchestrator/laborchestrator/total)
-[![](https://img.shields.io/github/issues/laborchestrator/laborchestrator)](https://github.com/laborchestrator/laborchestrator/issues)
+![Status](https://img.shields.io/badge/status-alpha-red)
+[![Issues](https://img.shields.io/github/issues/laborchestrator/laborchestrator)](https://github.com/laborchestrator/laborchestrator/issues)
+[![Downloads](https://img.shields.io/github/downloads/laborchestrator/laborchestrator/total)](https://github.com/LabOrchestrator/LabOrchestrator)
 
-[Link](https://github.com/LabOrchestrator/LabOrchestrator)
+[Github](https://github.com/LabOrchestrator/LabOrchestrator)
 
 This project contains files for deploying the project in Kubernetes. Go to kubernetes/postgres and kubernetes/lab_orchestrator_api and kubernetes/websocket_proxy and change the deployment and config maps. This is needed because there are passwords and secrets, so be careful.
 
@@ -96,10 +108,12 @@ This project also includes the current small documentation that explains every p
 
 ### LabOrchestrator-Documentation
 
-![](https://img.shields.io/github/downloads/laborchestrator/laborchestrator-documentation/total)
-[![](https://img.shields.io/github/issues/laborchestrator/laborchestrator-documentation)](https://github.com/laborchestrator/laborchestrator-documentation/issues)
+![Status](https://img.shields.io/badge/status-beta-red)
+[![License](https://img.shields.io/github/license/laborchestrator/laborchestrator-documentation)](https://github.com/LabOrchestrator/LabOrchestrator-documentation/blob/main/LICENSE)
+[![Issues](https://img.shields.io/github/issues/laborchestrator/laborchestrator-documentation)](https://github.com/laborchestrator/laborchestrator-documentation/issues)
+[![Downloads](https://img.shields.io/github/downloads/laborchestrator/laborchestrator-documentation/total)](https://github.com/LabOrchestrator/LabOrchestrator-Documentation)
 
-[Link](https://github.com/LabOrchestrator/LabOrchestrator-Documentation)
+[Github](https://github.com/LabOrchestrator/LabOrchestrator-Documentation)
 
 This is the project documentation. It contains an installation guide but also a full project description and the documentation about the prototype and some development steps. It's a big guide, but it should contain everything that needs to be documented.
 
