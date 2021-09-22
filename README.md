@@ -18,7 +18,7 @@ The LabOrchestrator can be used by anyone who wants to start VMs in a network th
 
 The Lab Orchestrator project is divided into multiple subprojects and this repository aims to provide a small introduction into all of them and Kubernetes files to deploy them all at once.
 
-## Milestones of the project
+## Milestones
 
 - [x] Start/Stop labs
 - [ ] Instructions
