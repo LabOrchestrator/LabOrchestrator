@@ -18,9 +18,17 @@ data:
   EMAIL_HOST_PASSWORD: "secret"
   EMAIL_HOST_USER: "noreply@domain.com"
   DEFAULT_FROM_EMAIL: "noreply@domain.com"
+  ACCOUNT_EMAIL_VERIFICATION: "optional"
   # Django Settings
   SECRET_KEY: "secret_key_for_testing"
   DEBUG: "False"
   ALLOWED_HOSTS: "localhost;127.0.0.1;192.168.50.45"
   USE_X_FORWARDED_HOST: "True"
   DEVELOPMENT: "False"
+  # Config
+  LAB_VNC_HOST: "192.168.50.45"
+  LAB_VNC_PORT: "30003"
+  LAB_VNC_PROTOCOL: "http"
+  LAB_VNC_PATH: "lab_vnc_prefix/lab_vnc.html"
+  WS_PROXY_HOST: "192.168.50.45"
+  WS_PROXY_PORT: "30002"
