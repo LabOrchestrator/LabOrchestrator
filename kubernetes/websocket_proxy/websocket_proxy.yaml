@@ -57,6 +57,8 @@ spec:
           env:
             - name: SECRET_KEY
               value: "secret_key_for_testing"
+            - name: HOST_PATH_PREFIX
+              value: "changeordeleteme"
             # - name: LOGLEVEL
             #   value: "DEBUG"
 ---
