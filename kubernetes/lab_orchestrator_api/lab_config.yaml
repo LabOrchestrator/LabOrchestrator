@@ -9,7 +9,7 @@ data:
   # Django Startup
   DJANGO_SUPERUSER_EMAIL: "admin@domain.com"
   DJANGO_SUPERUSER_PASSWORD: "secret"
-  DJANGO_SUPERUSER_USERNAME: "admin"
+  DJANGO_SUPERUSER_FIRST_NAME: "Max"
   AMOUNT_WORKERS: "5"
   # Mail
   EMAIL_USE_TLS: "True"
