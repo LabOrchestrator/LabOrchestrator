@@ -80,6 +80,7 @@ subjects:
 ---
 apiVersion: v1
 data:
+  ACCOUNT_EMAIL_VERIFICATION: optional
   ALLOWED_HOSTS: localhost;127.0.0.1;192.168.50.45
   AMOUNT_WORKERS: "5"
   DEBUG: "False"
@@ -93,8 +94,14 @@ data:
   EMAIL_HOST_USER: noreply@domain.com
   EMAIL_PORT: "587"
   EMAIL_USE_TLS: "True"
+  LAB_VNC_HOST: 192.168.50.45
+  LAB_VNC_PATH: lab_vnc_prefix/lab_vnc.html
+  LAB_VNC_PORT: "30003"
+  LAB_VNC_PROTOCOL: http
   SECRET_KEY: secret_key_for_testing
   USE_X_FORWARDED_HOST: "True"
+  WS_PROXY_HOST: 192.168.50.45
+  WS_PROXY_PORT: "30002"
 kind: ConfigMap
 metadata:
   labels:
