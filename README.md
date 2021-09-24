@@ -63,6 +63,8 @@ There are also some libraries that are included in those main parts:
 This is the API that controls the Kubernetes cluster, starts and stops VMs and manages all other resources for example labs and users.
 The LabOrchestrator-API is a Django-Rest-Framework (DRF) application that gives us access to all functionality in the LabOrchestratorLib.
 
+![](./img/api.png)
+
 ### WebsocketProxy
 
 [![Status](https://img.shields.io/pypi/status/lab-orchestrator-ws-proxy)](https://pypi.org/project/lab-orchestrator-ws-proxy/)
@@ -90,7 +92,9 @@ When a VM is started kubvirt automatically starts a VNC server for this VM. The 
 [Github](https://github.com/LabOrchestrator/LabVNC)  
 [Docker Hub](https://hub.docker.com/r/biolachs2/lab_orchestrator_novnc)
 
-The LabVNC deploys [noVNC](https://github.com/novnc/noVNC). With this part it's possible to open a VNC connection in your browser. To use it you need to open vnc.html or vnc_lite.html. Then set the parameters host to the ip of the WebsocketProxy, port to the port of the WebsocketProxy and path to the token and VM name as described above. There are other optional parameters listed [here](https://github.com/novnc/noVNC/blob/master/docs/EMBEDDING.md). A URL can look like this: `localhost:30003/vnc_lite.html?host=localhost&port=30002&path=ABCDEFTOKENGHIJKLM/ubuntu`.
+The LabVNC deploys [noVNC](https://github.com/novnc/noVNC) with some additions. With this part it's possible to open a VNC connection in your browser. To use it you need to open lab_vnc.html. Then set the parameters host to the ip of the WebsocketProxy, port to the port of the WebsocketProxy and path to the token and VM name as described above. If the WebsocketProxy is run behind a proxy you can attach a host name prefix to the path. There are other optional parameters listed [here](https://github.com/novnc/noVNC/blob/master/docs/EMBEDDING.md). A URL can look like this: `localhost:30003/lab_vnc.html?host=localhost&port=30002&path=ABCDEFTOKENGHIJKLM/ubuntu` or behind a proxy like this: `yoursite.com/lab_vnc.html?host=yoursite.com&port=30002&path=wsproxy/ABCDEFTOKENGHIJKLM/ubuntu`. In the left sidebar in the settings you are able to switch the VMs in a lab.
+
+![](./img/lab_vnc.png)
 
 ## Documentation
 
