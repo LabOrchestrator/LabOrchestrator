@@ -73,7 +73,6 @@ The LabOrchestrator-API is a Django-Rest-Framework (DRF) application that gives 
 [![Issues](https://img.shields.io/github/issues/laborchestrator/WebsocketProxy)](https://github.com/laborchestrator/WebsocketProxy/issues)
 [![Downloads](https://img.shields.io/docker/pulls/biolachs2/lab_orchestrator_ws_proxy)](https://hub.docker.com/r/biolachs2/lab_orchestrator_ws_proxy)
 [![Dependencies](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-ws-proxy)](https://libraries.io/pypi/lab-orchestrator-ws-proxy)
-[![Docs](https://img.shields.io/readthedocs/websocketproxy)](https://websocketproxy.readthedocs.io/en/latest/)
 
 [Github](https://github.com/LabOrchestrator/WebsocketProxy)  
 [PyPi](https://pypi.org/project/lab-orchestrator-ws-proxy/)  
