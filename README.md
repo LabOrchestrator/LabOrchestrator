@@ -100,7 +100,7 @@ The LabVNC deploys [noVNC](https://github.com/novnc/noVNC) with some additions. 
 
 ### LabOrchestrator
 
-![Status](https://img.shields.io/badge/status-alpha-red)
+![Status](https://img.shields.io/badge/status-stable-brightgreen)
 [![Issues](https://img.shields.io/github/issues/laborchestrator/laborchestrator)](https://github.com/laborchestrator/laborchestrator/issues)
 [![Downloads](https://img.shields.io/github/downloads/laborchestrator/laborchestrator/total)](https://github.com/LabOrchestrator/LabOrchestrator)
 
