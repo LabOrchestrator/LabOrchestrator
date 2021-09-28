@@ -83,7 +83,7 @@ When a VM is started kubvirt automatically starts a VNC server for this VM. The 
 
 ### LabVNC
 
-![Status](https://img.shields.io/badge/status-alpha-red)
+![Status](https://img.shields.io/badge/status-stable-brightgreen)
 [![Version](https://img.shields.io/docker/v/biolachs2/lab_orchestrator_novnc)](https://hub.docker.com/r/biolachs2/lab_orchestrator_novnc/tags)
 [![License](https://img.shields.io/github/license/laborchestrator/laborchestratorlib-djangoadapter)](https://github.com/LabOrchestrator/laborchestratorlib-djangoadapter/blob/main/LICENSE)
 [![Issues](https://img.shields.io/github/issues/laborchestrator/labvnc)](https://github.com/laborchestrator/labvnc/issues)
