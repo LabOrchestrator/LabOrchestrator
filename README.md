@@ -112,7 +112,7 @@ This project also includes the current small documentation that explains every p
 
 ### LabOrchestrator-Documentation
 
-![Status](https://img.shields.io/badge/status-beta-red)
+![Status](https://img.shields.io/badge/status-stable-brightgreen)
 [![License](https://img.shields.io/github/license/laborchestrator/laborchestrator-documentation)](https://github.com/LabOrchestrator/LabOrchestrator-documentation/blob/main/LICENSE)
 [![Issues](https://img.shields.io/github/issues/laborchestrator/laborchestrator-documentation)](https://github.com/laborchestrator/laborchestrator-documentation/issues)
 [![Downloads](https://img.shields.io/github/downloads/laborchestrator/laborchestrator-documentation/total)](https://github.com/LabOrchestrator/LabOrchestrator-Documentation)
@@ -220,7 +220,7 @@ To make the libraries easily available to everyone they are pushed to PyPi and c
 
 ## VM Images
 
-You need to have kubevirt compatible VM Images. This is for example the qcow2 format. A simple way to create a VM Image
+You need to have KubeVirt compatible VM Images. This is for example the qcow2 format. A simple way to create a VM Image
 is to start it in Gnome Boxes, install your Software and than copy the saved image file from either
 `~/.var/app/org.gnome.Boxes/data/gnome-boxes/images/` or `~/.local/share/gnome-boxes`. There is a bigger part in the
 [documentation](https://github.com/LabOrchestrator/LabOrchestrator-Documentation/blob/main/documentation.pdf). I
@@ -238,4 +238,8 @@ ADD --chown=107:107 path_to_your_file.img /disk/
 Then run `docker build -t username/reponame:version .` to build the image and `docker push username/reponame:version` to
 push the image to docker hub.
 
-I also recommend reading chapters 4.2.1 "Custom base Image with Cloud-init Setup" and 4.1.4.6 "Container Disks".
+Then add a new docker file to the lab orchestrator api that URL is `username/repo:version`.
+
+When you update the VM images you can just change the URL of the docker image in the lab orchestrator.
+
+I also recommend reading chapters 4.2.1 "Custom base Image with Cloud-init Setup", 4.1.4.6 "Container Disks" and 3.2 "Lab Orchestrator Production Installation".
