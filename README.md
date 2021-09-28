@@ -1,6 +1,6 @@
 ![LabOrchestrator = Kubernetes + KubeVirt + NoVNC](https://raw.githubusercontent.com/LabOrchestrator/LabOrchestrator-Documentation/main/logo/logomath.png)
 
-![Status](https://img.shields.io/badge/status-alpha-red)
+![Status](https://img.shields.io/badge/status-stable-brightgreen)
 [![Issues](https://img.shields.io/github/issues/laborchestrator/laborchestrator)](https://github.com/laborchestrator/laborchestrator/issues)
 [![Downloads](https://img.shields.io/github/downloads/laborchestrator/laborchestrator/total)](https://github.com/LabOrchestrator/LabOrchestrator)
 
@@ -51,7 +51,7 @@ There are also some libraries that are included in those main parts:
 
 ### LabOrchestrator-API
 
-![Status](https://img.shields.io/badge/status-alpha-red)
+![Status](https://img.shields.io/badge/status-stable-brightgreen)
 [![Version](https://img.shields.io/docker/v/biolachs2/lab_orchestrator)](https://hub.docker.com/r/biolachs2/lab_orchestrator/tags)
 [![License](https://img.shields.io/github/license/laborchestrator/laborchestrator-api)](https://github.com/LabOrchestrator/laborchestrator-api/blob/main/LICENSE)
 [![Issues](https://img.shields.io/github/issues/laborchestrator/laborchestrator-api)](https://github.com/laborchestrator/laborchestrator-api/issues)
@@ -73,7 +73,6 @@ The LabOrchestrator-API is a Django-Rest-Framework (DRF) application that gives 
 [![Issues](https://img.shields.io/github/issues/laborchestrator/WebsocketProxy)](https://github.com/laborchestrator/WebsocketProxy/issues)
 [![Downloads](https://img.shields.io/docker/pulls/biolachs2/lab_orchestrator_ws_proxy)](https://hub.docker.com/r/biolachs2/lab_orchestrator_ws_proxy)
 [![Dependencies](https://img.shields.io/librariesio/release/pypi/lab-orchestrator-ws-proxy)](https://libraries.io/pypi/lab-orchestrator-ws-proxy)
-[![Docs](https://img.shields.io/readthedocs/websocketproxy)](https://websocketproxy.readthedocs.io/en/latest/)
 
 [Github](https://github.com/LabOrchestrator/WebsocketProxy)  
 [PyPi](https://pypi.org/project/lab-orchestrator-ws-proxy/)  
