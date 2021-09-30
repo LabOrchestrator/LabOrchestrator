@@ -242,3 +242,5 @@ Then add a new docker file to the lab orchestrator api that URL is `username/rep
 When you update the VM images you can just change the URL of the docker image in the lab orchestrator.
 
 I also recommend reading chapters 4.2.1 "Custom base Image with Cloud-init Setup", 4.1.4.6 "Container Disks" and 3.2 "Lab Orchestrator Production Installation".
+
+There are some example VMs in [docker hub](https://hub.docker.com/repository/docker/biolachs2/example_vms).
